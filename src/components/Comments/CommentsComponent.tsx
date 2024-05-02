@@ -15,12 +15,15 @@ export const CommentsComponent: FC<CommentsComponentProps> = ({ comments }) => {
         comments.map((comment) => (
           <Box key={comment.id} display='flex' flexDirection='column' mb={4}>
             <Flex>
-              <Box display='flex' justifyContent='star'>
+              <Box display='flex' justifyContent='star' alignItems='center'>
+                <Text pr={2} as='b'>
+                  {comment.rating}.0
+                </Text>
                 {[...Array(comment.rating)].map((_, index) => (
                   <Icon
                     as={AiFillStar}
                     key={index}
-                    boxSize={6}
+                    boxSize={3}
                     color='yellow.400'
                     mr={1}
                   />
@@ -28,10 +31,12 @@ export const CommentsComponent: FC<CommentsComponentProps> = ({ comments }) => {
               </Box>
               <Spacer />
               <Box>
-                <Text ml={2}>{format(new Date(comment.id), 'dd/MM/yyyy')}</Text>
+                <Text ml={2} fontSize='sm'>
+                  {format(new Date(comment.id), 'dd/MM/yyyy')}
+                </Text>
               </Box>
             </Flex>
-            <Text>{comment.comment}</Text>
+            <Text mt={5}>{comment.comment}</Text>
           </Box>
         ))}
     </>

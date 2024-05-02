@@ -24,7 +24,6 @@ const useLocalStorage = <T>(
   };
 
   useEffect(() => {
-    // Ensure state reflects localStorage on initial mount
     const storedValues = Object.fromEntries(
       Object.entries(initialValues).map(([key, defaultValue]) => [
         key,

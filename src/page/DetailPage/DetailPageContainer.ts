@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { RootState } from '../../state';
-import { DetailComponent } from './DetailComponent';
+import DetailPage from './DetailPage';
 import { setDataByIdRequest } from '../../state/Movies/reducer';
 import { selectMovieDetails } from '../../state/Movies/selectors';
 
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   getMovieById: (param: any) => dispatch(setDataByIdRequest(param)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(DetailPage);

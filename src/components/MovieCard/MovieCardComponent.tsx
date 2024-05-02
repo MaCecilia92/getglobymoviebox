@@ -10,8 +10,7 @@ interface MovieCardProps {
   moviesData: Movie[];
 }
 
-export const MovieCardComponent: FC <MovieCardProps> = ({ moviesData }) => {
-  console.log(moviesData, 'movie');
+export const MovieCardComponent: FC<MovieCardProps> = ({ moviesData }) => {
   return (
     <Stack justifyContent='center' alignItems='center' w='65%'>
       <Stack direction='row' spacing={4} wrap='wrap' justifyContent='start'>

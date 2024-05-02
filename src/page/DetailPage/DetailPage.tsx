@@ -1,12 +1,23 @@
-import { type FC } from 'react';
-import { DetailComponent } from '../../components';
-import { RatingComponent } from '../../components';
+import { FC } from 'react';
+import { DetailComponent, RatingComponent } from '../../components';
+import { DetailComponentProps } from '../../components';
 
-const DetailPage: FC = () => {
+interface ExtendedDetailComponentProps extends DetailComponentProps {
+  imdbID?: string;
+}
+
+const DetailPage: FC<ExtendedDetailComponentProps> = ({
+  getMovieById,
+  movieByIdResult,
+}) => {
+  const imdbID = movieByIdResult ? movieByIdResult.imdbID : '';
   return (
     <>
-      <DetailComponent />
-      <RatingComponent />
+      <DetailComponent
+        getMovieById={getMovieById}
+        movieByIdResult={movieByIdResult}
+      />
+      <RatingComponent movieId={imdbID} />
     </>
   );
 };

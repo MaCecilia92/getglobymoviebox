@@ -4,27 +4,28 @@ import { useParams } from 'react-router-dom';
 import { Flex, Box, Text, Image, Heading } from '@chakra-ui/react';
 import ImdbLogo from '../../assets/imdb-icon.png';
 
-interface DetailComponentProps {
-    getMovieById: (params: { i: string | undefined }) => void;
-    movieByIdResult?: Record<string, any>; // Objeto de tipo genérico
-  }
+export interface DetailComponentProps {
+  getMovieById: (params: { i: string | undefined }) => void;
+  movieByIdResult?: Record<string, any>;
+}
 
-export const DetailComponent: FC <DetailComponentProps>= ({ getMovieById, movieByIdResult }) => {
+export const DetailComponent: FC<DetailComponentProps> = ({
+  getMovieById,
+  movieByIdResult,
+}) => {
   const { id } = useParams();
 
   useEffect(() => {
     getMovieById({ i: id });
   }, [id]);
 
-  console.log(movieByIdResult, 'result');
-
   return (
     <Box width='65%'>
       <Flex color='white'>
-        <Box width='500px' bg='green.500' display='flex' justifyContent='end'>
+        <Box width='300px' bg='green.500' display='flex' justifyContent='start'>
           <Image
             fallbackSrc='https://via.placeholder.com/150'
-            width={400}
+            width={300}
             objectFit='cover'
             src={movieByIdResult?.Poster}
             alt={movieByIdResult?.Title}

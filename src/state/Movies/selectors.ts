@@ -1,7 +1,6 @@
 import { RootState } from '../index';
 import { Movie } from '../../service';
 
-// Selección del estado de búsqueda de películas directamente en cada selector
 export const selectSearchResults = (state: RootState): Movie[] =>
   state.movies.searchResults;
 

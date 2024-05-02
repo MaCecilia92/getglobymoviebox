@@ -1,10 +1,17 @@
 import { type FC } from 'react';
 import { SearchComponent } from '../../components';
+import { SearchComponentProps } from '../../components';
 
-const HomePage: FC = () => {
+const HomePage: FC<SearchComponentProps> = ({
+  searchResults,
+  SearchByTerm,
+}) => {
   return (
     <>
-      <SearchComponent />
+      <SearchComponent
+        searchResults={searchResults}
+        SearchByTerm={SearchByTerm}
+      />
     </>
   );
 };

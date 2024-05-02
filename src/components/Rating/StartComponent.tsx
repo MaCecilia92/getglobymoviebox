@@ -14,6 +14,7 @@ export const StarComponent: FC<StarProps> = ({ filled, onClick }) => {
       onClick={onClick}
       aria-label={filled ? 'star-filled' : 'star-empty'}
       mb={2}
+      p={2}
       sx={{
         '&:hover': {
           borderColor: 'transparent',

@@ -2,8 +2,8 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 import * as actions from './reducer';
-import { getMovieSearchService } from '../../service'; // Import your movie search service function
-import { Movie } from '../../service'; // Import your SearchResponse type from the services
+import { getMovieSearchService } from '../../service'; 
+import { Movie } from '../../service';
 import { MovieSearchState } from './initialState';
 
 export interface SearchResponses extends MovieSearchState {
@@ -19,7 +19,6 @@ export interface SearchResponse extends SearchResponses {
   MovieById?: object | [];
 }
 
-// Function to search movies in the API and handle the result
 function* searchMovies({
   payload,
 }: PayloadAction<string>): Generator<any, void, SearchResponse> {

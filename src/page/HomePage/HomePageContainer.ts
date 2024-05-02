@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { RootState } from '../../state'; // Asegúrate de importar el tipo adecuado para RootState
-import { SearchComponent } from './SearchComponent';
+import { RootState } from '../../state';
+import HomePage from './HomePage';
 import { setDataRequest } from '../../state/Movies/reducer';
-import { selectSearchResults } from '../../state/Movies/selectors'; // Asegúrate de importar el selector adecuado
+import { selectSearchResults } from '../../state/Movies/selectors';
 
 const mapStateToProps = (state: RootState) => ({
   searchResults: selectSearchResults(state),
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   SearchByTerm: (param: any) => dispatch(setDataRequest(param)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
