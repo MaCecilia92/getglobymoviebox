@@ -1,21 +1,22 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css';
-// import { useSelector } from 'react-redux';
-import { selectSession } from './state/Session/selectors';
-import { Text } from '@chakra-ui/react';
+import { type FC } from 'react';
+import { VStack } from '@chakra-ui/react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './page/HomePage/HomePage';
+import DetailPage from './page/DetailPage/DetailPage';
 
-function App() {
-  console.log(selectSession, 'select');
-
+const App: FC = () => {
   return (
-    <>
-      <Text fontSize='6xl' bg='brand.primary'>
-        (6xl) In love with React & Next
-      </Text>
-    </>
+    <VStack width='100vw' height='100vh' bg='brand.primary'>
+      <Router>
+        <Routes>
+          <Route element={<HomePage />} path='/home' />
+          <Route element={<DetailPage />} path='/:id' />
+          <Route element={<HomePage />} path='/' />
+        </Routes>
+      </Router>
+    </VStack>
   );
-}
+};
 
 export default App;

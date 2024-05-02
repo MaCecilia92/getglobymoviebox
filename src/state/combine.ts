@@ -1,14 +1,10 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { all } from 'redux-saga/effects';
-import {
-  reducer as sessionReducer,
-  saga as sessionSaga,
-} from './Session/index';
+import { reducer as movieReducer, saga as movieSaga } from './Movies/index';
 
 export const reducers = {
-  session: sessionReducer,
+  movies: movieReducer,
 };
 
 export function* sagas() {
-  yield all([...sessionSaga]);
+  yield all([...movieSaga]);
 }
