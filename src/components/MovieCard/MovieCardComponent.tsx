@@ -1,9 +1,16 @@
 import { type FC } from 'react';
 import { Stack, Image, Box, IconButton } from '@chakra-ui/react';
-import { FaHeart, FaRegHeart } from 'react-icons/fa6';
+import { FaRegHeart } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import { Movie } from '../../service';
 
-export const MovieCardComponent: FC = ({ moviesData }) => {
+//FaHeart
+
+interface MovieCardProps {
+  moviesData: Movie[];
+}
+
+export const MovieCardComponent: FC <MovieCardProps> = ({ moviesData }) => {
   console.log(moviesData, 'movie');
   return (
     <Stack justifyContent='center' alignItems='center' w='65%'>

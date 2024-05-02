@@ -1,16 +1,25 @@
-import { type FC, useState, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { FC, useState, useEffect } from 'react';
 import { MovieCardComponent } from '../MovieCard/MovieCardComponent';
 import { Stack, InputGroup, InputLeftElement, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 
-export const SearchComponent: FC = ({ searchResults, SearchByTerm }) => {
+interface SearchComponentProps {
+  searchResults: any[]; // Aquí deberías especificar el tipo correcto de los resultados de búsqueda
+  SearchByTerm: (term: any) => void;
+}
+
+export const SearchComponent: FC<SearchComponentProps> = ({ searchResults, SearchByTerm }) => {
+
   console.log(searchResults, SearchByTerm);
+
   const [term, setTerm] = useState({});
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value;
     return setTerm({ s: searchValue });
   };
-  
+
   useEffect(() => {
     typeof term !== 'object' || Object.keys(term).length !== 0 ? SearchByTerm(term) : null;
   }, [term]);
