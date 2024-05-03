@@ -16,10 +16,14 @@ const moviesSlice = createSlice({
       state.isLoading = true;
     },
     setDataSucceeded: (state, action: PayloadAction<any>) => {
-      console.log(action.payload.Search, 'pay');
-      state.searchResults = action.payload.Search;
-      state.totalResults = action.payload.totalResults;
-      state.isLoading = false;
+        if (action.payload.Search) {
+            state.searchResults = action.payload.Search;
+            state.totalResults = action.payload.totalResults;
+            state.error = false;
+          } else {
+            state.error = action.payload.Response;
+            state.searchResults = [];
+          }
     },
     setDataError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;

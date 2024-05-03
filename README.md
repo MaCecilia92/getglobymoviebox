@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+## Cómo instalar el proyecto? 
+- Clonar el proyecto con git clone
+- Instalar las dependencias con npm i
+- Tirar un comando e instalar otras dependencias con yarn install (sé que esto esta mal, pero tuve muchos conflictos para instalar redux en el proyecto y no pude encontrar su causa)
+- Si todo salió bien el proyecto corre en http://localhost:5173/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Mejoras a realizar
+- El manejo de los tiempos en que se hace la request y se renderizan los componentes, hay un delay en el momento en que se vuelve atrás y se elige una nueva película, la nueva información elegida tarda unos minutos en renderizarse, ahora probablemente piense como solución agregar un componente de loading para evitar que esto sea percibido por el usuario. 
+- Renderizar la lista de favoritos
+- Que al agregar a favoritos se actualice automáticamente los estados del botón.
+- Mejoras en las notificaciones al usuario 
 
-Currently, two official plugins are available:
+## Funcionalidades que se implementaron 
+- Búsqueda por nombre de la película 
+- Redirección al detalle de la misma 
+- Componente para agregar rating y comentarios
+- Marca de favoritos que se agregan a la lista 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Imágenes de la aplicación 
+- Pantalla de inicio, con el componente que se presenta al no encontrar resultados  
+[![inicio-getglobymoviebox.jpg](https://i.postimg.cc/d14hmB1Y/inicio-getglobymoviebox.jpg)](https://postimg.cc/TL52Tng7)
 
-## Expanding the ESLint configuration
+- Búsqueda de resultados exitosa
+[![search2-getglobymoviebox.jpg](https://i.postimg.cc/qqFgWvyD/search2-getglobymoviebox.jpg)](https://postimg.cc/4HzJ9Z8p)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-Cuando la película, en este caso "Dune" se agrega como favorito 
+[![favorites-getglobymoviebox.jpg](https://i.postimg.cc/T2NyKCFj/favorites-getglobymoviebox.jpg)](https://postimg.cc/bdbYMHzd)
 
-- Configure the top-level `parserOptions` property like this:
+-Pantalla de detalles de la película 
+[![detail-getglobymoviebox.jpg](https://i.postimg.cc/BvNL84LZ/detail-getglobymoviebox.jpg)](https://postimg.cc/JyD4vw5S)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-Se agregan comentarios a la película
+[![commets-getglobymoviebox.jpg](https://i.postimg.cc/WzdXW9Lr/commets-getglobymoviebox.jpg)](https://postimg.cc/ctNR6BJ4)

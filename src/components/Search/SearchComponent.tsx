@@ -4,7 +4,7 @@ import { MovieCardComponent } from '../MovieCard/MovieCardComponent';
 import { Stack, InputGroup, InputLeftElement, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { MovieFavorite } from '../../page/HomePage/HomePage';
-// import { NotFoundComponent } from '../NotFound/NotFoundComponent';
+import { NotFoundComponent } from '../NotFound/NotFoundComponent';
 
 export interface SearchComponentProps {
   searchResults: any[] | MovieFavorite[];
@@ -32,7 +32,8 @@ export const SearchComponent: FC<SearchComponentProps> = ({
 
   console.log(error, 'conditional');
   console.log(searchResults);
-
+  console.log(SearchByTerm);
+  
   return (
     <>
       <Stack spacing={4} w='65%' m={10}>
@@ -49,9 +50,14 @@ export const SearchComponent: FC<SearchComponentProps> = ({
         </InputGroup>
       </Stack>
       <Stack justifyContent='center' alignItems='center' w='65%'>
-          <Stack direction='row' spacing={4} wrap='wrap' justifyContent='start'>
-            <MovieCardComponent moviesData={searchResults} />
-          </Stack>
+      {error &&
+        <NotFoundComponent />
+      }
+      {searchResults && (
+        <Stack direction='row' spacing={4} wrap='wrap' justifyContent='start'>
+          <MovieCardComponent moviesData={term ? searchResults : []} />
+        </Stack>
+      )}
       </Stack>
     </>
   );
