@@ -5,6 +5,7 @@
 - Si todo salió bien el proyecto corre en http://localhost:5173/
 
 ## Mejoras a realizar
+- Agregar pruebas unitarias de componentes
 - El manejo de los tiempos en que se hace la request y se renderizan los componentes, hay un delay en el momento en que se vuelve atrás y se elige una nueva película, la nueva información elegida tarda unos minutos en renderizarse, ahora probablemente piense como solución agregar un componente de loading para evitar que esto sea percibido por el usuario. 
 - Renderizar la lista de favoritos
 - Que al agregar a favoritos se actualice automáticamente los estados del botón.
