@@ -1,5 +1,5 @@
 ## Cómo instalar el proyecto? 
-- Clonar el proyecto con git clone
+- Clonar el proyecto
 - Instalar las dependencias con npm i
 - Si todo salió bien el proyecto corre en http://localhost:5173/
 
