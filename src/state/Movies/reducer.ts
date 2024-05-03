@@ -16,7 +16,7 @@ const moviesSlice = createSlice({
       state.isLoading = true;
     },
     setDataSucceeded: (state, action: PayloadAction<any>) => {
-      console.log(action.payload.Response, 'pay');
+      console.log(action.payload.Search, 'pay');
       state.searchResults = action.payload.Search;
       state.totalResults = action.payload.totalResults;
       state.isLoading = false;
