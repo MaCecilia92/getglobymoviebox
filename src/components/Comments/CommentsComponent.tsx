@@ -13,7 +13,13 @@ export const CommentsComponent: FC<CommentsComponentProps> = ({ comments }) => {
     <>
       {comments &&
         comments.map((comment) => (
-          <Box key={comment.id} display='flex' flexDirection='column' mb={4}>
+          <Box
+            key={comment.id}
+            display='flex'
+            flexDirection='column'
+            mb={4}
+            color='brand.lightGrey'
+          >
             <Flex>
               <Box display='flex' justifyContent='star' alignItems='center'>
                 <Text pr={2} as='b'>
@@ -36,7 +42,9 @@ export const CommentsComponent: FC<CommentsComponentProps> = ({ comments }) => {
                 </Text>
               </Box>
             </Flex>
-            <Text mt={5}>{comment.comment}</Text>
+            <Text color='brand.white' mt={5}>
+              {comment.comment}
+            </Text>
           </Box>
         ))}
     </>

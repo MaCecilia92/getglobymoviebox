@@ -4,13 +4,8 @@ import MovieLogo from '../../assets/tv.png';
 
 export const Header: FC = () => {
   return (
-    <Box
-      bg='brand.secondary'
-      width='100%'
-      display='flex'
-      justifyContent='center'
-    >
-      <Flex width='65%' alignItems='start' gap='2' bg='brand.lightGrey' p={5}>
+    <Box width='100%' display='flex' justifyContent='center'>
+      <Flex width='65%' alignItems='start' gap='2' p={5}>
         <Image
           src={MovieLogo}
           fallbackSrc='https://via.placeholder.com/150'
@@ -19,7 +14,9 @@ export const Header: FC = () => {
           alt='MovieBox Logo'
         />
         <Box p='2'>
-          <Heading size='md'>MovieBox</Heading>
+          <Heading size='md' color='brand.white'>
+            MovieBox
+          </Heading>
         </Box>
       </Flex>
     </Box>

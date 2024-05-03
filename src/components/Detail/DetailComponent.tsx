@@ -20,9 +20,9 @@ export const DetailComponent: FC<DetailComponentProps> = ({
   }, [id]);
 
   return (
-    <Box width='65%'>
+    <Box width='65%' mt={20}>
       <Flex color='white'>
-        <Box width='300px' bg='green.500' display='flex' justifyContent='start'>
+        <Box width='300px' display='flex' justifyContent='start'>
           <Image
             fallbackSrc='https://via.placeholder.com/150'
             width={300}
@@ -31,7 +31,7 @@ export const DetailComponent: FC<DetailComponentProps> = ({
             alt={movieByIdResult?.Title}
           />
         </Box>
-        <Box flex='1' bg='tomato' p={5}>
+        <Box flex='1' p={5}>
           <Box mb={2}>
             <Heading as='h1' size='xl'>
               {movieByIdResult?.Title}

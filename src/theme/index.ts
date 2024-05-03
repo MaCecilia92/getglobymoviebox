@@ -11,6 +11,13 @@ const customTheme = extendTheme({
   colors: {
     ...colors,
   },
+  styles: {
+    global: {
+      body: {
+        bg: 'black', // Cambia 'blue.100' al color que desees
+      },
+    },
+  },
 });
 
 export default customTheme;

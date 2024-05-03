@@ -3,15 +3,19 @@ import { FC, useState, useEffect } from 'react';
 import { MovieCardComponent } from '../MovieCard/MovieCardComponent';
 import { Stack, InputGroup, InputLeftElement, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
+import { MovieFavorite } from '../../page/HomePage/HomePage';
+import { NotFoundComponent } from '../NotFound/NotFoundComponent';
 
 export interface SearchComponentProps {
-  searchResults: any[];
+  searchResults: any[] | MovieFavorite[];
   SearchByTerm: (term: any) => void;
+  error: string | boolean;
 }
 
 export const SearchComponent: FC<SearchComponentProps> = ({
   searchResults,
   SearchByTerm,
+  error,
 }) => {
   const [term, setTerm] = useState({});
 
@@ -26,9 +30,12 @@ export const SearchComponent: FC<SearchComponentProps> = ({
       : null;
   }, [term]);
 
+  console.log(error, 'conditional');
+  console.log(searchResults);
+
   return (
     <>
-      <Stack spacing={4}>
+      <Stack spacing={4} w='65%' m={10}>
         <InputGroup>
           <InputLeftElement pointerEvents='none'>
             <SearchIcon color='gray.300' />
@@ -37,10 +44,19 @@ export const SearchComponent: FC<SearchComponentProps> = ({
             type='text'
             placeholder='Search...'
             onChange={(e) => handleChange(e)}
+            bg='gray.100'
           />
         </InputGroup>
       </Stack>
-      <MovieCardComponent moviesData={term ? searchResults : []} />
+      <Stack justifyContent='center' alignItems='center' w='65%'>
+        {!searchResults.length ? (
+          <NotFoundComponent />
+        ) : (
+          <Stack direction='row' spacing={4} wrap='wrap' justifyContent='start'>
+            <MovieCardComponent moviesData={searchResults} />
+          </Stack>
+        )}
+      </Stack>
     </>
   );
 };

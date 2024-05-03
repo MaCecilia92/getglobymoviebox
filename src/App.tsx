@@ -7,7 +7,7 @@ import { HomePage, DetailPage } from './page';
 
 const App: FC = () => {
   return (
-    <VStack width='100vw' height='100vh' bg='brand.primary'>
+    <VStack width='100vw'>
       <Header />
       <Router>
         <Routes>

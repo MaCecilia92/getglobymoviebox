@@ -13,5 +13,5 @@ export const selectTotalResults = (state: RootState): string =>
 export const selectIsLoading = (state: RootState): boolean =>
   state.movies.isLoading;
 
-export const selectError = (state: RootState): string | null =>
+export const selectError = (state: RootState): string | boolean =>
   state.movies.error;

@@ -2,7 +2,7 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 import * as actions from './reducer';
-import { getMovieSearchService } from '../../service'; 
+import { getMovieSearchService } from '../../service';
 import { Movie } from '../../service';
 import { MovieSearchState } from './initialState';
 
@@ -10,7 +10,7 @@ export interface SearchResponses extends MovieSearchState {
   searchResults: Movie[];
   totalResults: string;
   isLoading: boolean;
-  error: string | null;
+  error: string | boolean;
 }
 
 export interface SearchResponse extends SearchResponses {

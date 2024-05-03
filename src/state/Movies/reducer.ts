@@ -9,16 +9,21 @@ const moviesSlice = createSlice({
     totalResults: '0',
     movieById: {},
     isLoading: false,
-    error: null,
+    error: false,
   } as MovieSearchState,
   reducers: {
     setDataRequest: (state) => {
       state.isLoading = true;
     },
     setDataSucceeded: (state, action: PayloadAction<any>) => {
-      console.log(action.payload, 'pay');
-      state.searchResults = action.payload.Search;
-      state.totalResults = action.payload.totalResults;
+      if (action.payload.Search) {
+        state.searchResults = action.payload.Search;
+        state.totalResults = action.payload.totalResults;
+        state.error = false;
+      } else {
+        state.error = action.payload.Response;
+        state.searchResults = [];
+      }
       state.isLoading = false;
     },
     setDataError: (state, action: PayloadAction<string>) => {
@@ -41,7 +46,7 @@ const moviesSlice = createSlice({
       state.searchResults = [];
       state.totalResults = '0';
       state.isLoading = false;
-      state.error = null;
+      state.error = false;
     },
   },
 });

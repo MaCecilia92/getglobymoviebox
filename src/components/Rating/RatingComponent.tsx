@@ -12,9 +12,8 @@ export interface Comment {
   idMovie: string;
 }
 
-
 interface RatingComponentProps {
-  movieId: string; 
+  movieId: string;
 }
 
 export const RatingComponent: FC<RatingComponentProps> = ({ movieId }) => {
@@ -58,7 +57,7 @@ export const RatingComponent: FC<RatingComponentProps> = ({ movieId }) => {
   return (
     <Box>
       <Flex alignItems='center'>
-        <Text as='b' fontSize='lg'>
+        <Text as='b' fontSize='lg' color='brand.lightGrey'>
           Rate
         </Text>
         {[...Array(5)].map((_, index) => (
@@ -75,9 +74,15 @@ export const RatingComponent: FC<RatingComponentProps> = ({ movieId }) => {
         placeholder='Leave a comment...'
         rows={4}
         cols={50}
-      ></Textarea>
+        bg='gray.100'
+      />
       <Box display='flex' justifyContent='end' mt={2}>
-        <Button colorScheme='teal' size='md' onClick={handleSave}>
+        <Button
+          colorScheme='teal'
+          size='md'
+          onClick={handleSave}
+          isDisabled={!comment || !rating}
+        >
           Post
         </Button>
       </Box>

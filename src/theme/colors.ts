@@ -7,7 +7,7 @@ export const colors = {
     dark: '#0A1014',
     grey: '#182329',
     midGrey: '#353F4C',
-    lightGrey: '#7ABC99',
-    white: '#FF4040',
+    lightGrey: '#7A8C99',
+    white: '#FFFFFF',
   },
 };

@@ -19,8 +19,6 @@ export interface SearchResponse {
 export const getMovieSearchService = async (
   params: string | { [key: string]: string },
 ): Promise<SearchResponse | Movie[] | object> => {
-  console.log(typeof params, 'params');
-
   const paramsString =
     typeof params === 'string'
       ? params

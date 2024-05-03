@@ -4,10 +4,11 @@ import { Dispatch } from 'redux';
 import { RootState } from '../../state';
 import HomePage from './HomePage';
 import { setDataRequest } from '../../state/Movies/reducer';
-import { selectSearchResults } from '../../state/Movies/selectors';
+import { selectSearchResults, selectError } from '../../state/Movies/selectors';
 
 const mapStateToProps = (state: RootState) => ({
   searchResults: selectSearchResults(state),
+  error: selectError(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

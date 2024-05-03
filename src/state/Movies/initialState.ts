@@ -5,12 +5,12 @@ export interface MovieSearchState extends SearchResponse {
   totalResults: string;
   isLoading: boolean;
   movieById?: object | [];
-  error: string | null;
+  error: string | boolean;
 }
 
 export const MovieSearch: MovieSearchState = {
   searchResults: [],
   totalResults: '0',
   isLoading: false,
-  error: null,
+  error: false,
 };
