@@ -3,7 +3,8 @@ import { type FC } from 'react';
 import { VStack } from '@chakra-ui/react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components';
-import { HomePage, DetailPage } from './page';
+import HomePage from './page/HomePage';
+import DetailPage from './page/DetailPage';
 
 const App: FC = () => {
   return (
