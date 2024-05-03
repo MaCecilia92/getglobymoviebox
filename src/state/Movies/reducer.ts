@@ -19,7 +19,6 @@ const moviesSlice = createSlice({
         if (action.payload.Search) {
             state.searchResults = action.payload.Search;
             state.totalResults = action.payload.totalResults;
-            state.error = false;
           } else {
             state.error = action.payload.Response;
             state.searchResults = [];

@@ -16,7 +16,7 @@ export const NotFoundComponent: FC = () => {
       <Heading as='h1' size='xl' color='brand.white'>
         {notFoundStrings.SEARCH}
       </Heading>
-      <Heading as='h5' size='md' textAlign='center'>
+      <Heading as='h5' size='md' textAlign='center' color='brand.lightGrey'>
         {notFoundStrings.OFFER}
       </Heading>
     </Box>

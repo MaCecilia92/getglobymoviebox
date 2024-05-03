@@ -30,7 +30,7 @@ export const SearchComponent: FC<SearchComponentProps> = ({
       : null;
   }, [term]);
 
-  console.log(error, 'conditional');
+  console.log((!error && searchResults.length === 0), 'conditional');
   console.log(searchResults);
   console.log(SearchByTerm);
   
@@ -50,12 +50,12 @@ export const SearchComponent: FC<SearchComponentProps> = ({
         </InputGroup>
       </Stack>
       <Stack justifyContent='center' alignItems='center' w='65%'>
-      {error &&
-        <NotFoundComponent />
-      }
+      {(!error || searchResults.length === 0) &&
+  <NotFoundComponent />
+}
       {searchResults && (
         <Stack direction='row' spacing={4} wrap='wrap' justifyContent='start'>
-          <MovieCardComponent moviesData={term ? searchResults : []} />
+          <MovieCardComponent moviesData={searchResults} />
         </Stack>
       )}
       </Stack>
