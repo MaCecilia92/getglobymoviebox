@@ -4,7 +4,7 @@ import { MovieCardComponent } from '../MovieCard/MovieCardComponent';
 import { Stack, InputGroup, InputLeftElement, Input } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import { MovieFavorite } from '../../page/HomePage/HomePage';
-import { NotFoundComponent } from '../NotFound/NotFoundComponent';
+// import { NotFoundComponent } from '../NotFound/NotFoundComponent';
 
 export interface SearchComponentProps {
   searchResults: any[] | MovieFavorite[];
@@ -49,13 +49,9 @@ export const SearchComponent: FC<SearchComponentProps> = ({
         </InputGroup>
       </Stack>
       <Stack justifyContent='center' alignItems='center' w='65%'>
-        {!searchResults.length ? (
-          <NotFoundComponent />
-        ) : (
           <Stack direction='row' spacing={4} wrap='wrap' justifyContent='start'>
             <MovieCardComponent moviesData={searchResults} />
           </Stack>
-        )}
       </Stack>
     </>
   );
