@@ -1,7 +1,6 @@
-import { type FC } from 'react';
+import { type FC, useEffect } from 'react';
 import { IconButton } from '@chakra-ui/react';
 import { FaRegHeart, FaHeart } from 'react-icons/fa6';
-import { useLocalStorage } from '../../customhooks';
 
 export interface Favorite {
   title: string;
@@ -27,9 +26,22 @@ interface FavoriteButtonProps {
 
 export const FavoriteButtonComponent: FC<FavoriteButtonProps> = ({ movie }) => {
   const { Title, Poster, imdbID, Type, Year, isFavorite } = movie;
-  const [data, setData] = useLocalStorage<Favorite>({
-    favorite: [],
-  });
+
+  useEffect(() => {
+    const existingFavorites = localStorage.getItem('favorites');
+    if (!existingFavorites) {
+      localStorage.setItem('favorites', JSON.stringify([]));
+    }
+  }, []);
+
+  const updateFavoriteLocalstorage = (newFavorite: Favorite): void => {
+    const existingFavorites: Favorite[] = JSON.parse(localStorage.getItem('favorites') || '[]');
+    const isDuplicate = existingFavorites.some(favorite => favorite.idMovie === newFavorite.idMovie);
+    if (!isDuplicate) {
+      existingFavorites.push(newFavorite);
+      localStorage.setItem('favorites', JSON.stringify(existingFavorites));
+    }
+  };
 
   const handleClick = () => {
     const newFavorite: Favorite = {
@@ -40,7 +52,7 @@ export const FavoriteButtonComponent: FC<FavoriteButtonProps> = ({ movie }) => {
       poster: Poster,
       isFavorite: true,
     };
-    setData('favorite', data['favorite'].concat(newFavorite));
+    updateFavoriteLocalstorage(newFavorite);
   };
 
   return (

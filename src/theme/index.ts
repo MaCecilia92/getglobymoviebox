@@ -14,7 +14,7 @@ const customTheme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'black', // Cambia 'blue.100' al color que desees
+        bg: 'black',
       },
     },
   },

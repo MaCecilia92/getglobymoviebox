@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { MovieSearchState } from './initialState';
+//import { Favorite } from '../../components';
 
 const moviesSlice = createSlice({
   name: 'getmovies',

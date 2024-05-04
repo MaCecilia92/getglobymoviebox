@@ -5,6 +5,7 @@ import * as actions from './reducer';
 import { getMovieSearchService } from '../../service';
 import { Movie } from '../../service';
 import { MovieSearchState } from './initialState';
+//import { Favorite } from '../../components';
 
 export interface SearchResponses extends MovieSearchState {
   searchResults: Movie[];
@@ -19,9 +20,8 @@ export interface SearchResponse extends SearchResponses {
   MovieById?: object | [];
 }
 
-function* searchMovies({
-  payload,
-}: PayloadAction<string>): Generator<any, void, SearchResponse> {
+
+function* searchMovies({payload}: PayloadAction<string>): Generator<any, void, SearchResponse> {
   try {
     const searchResponse: SearchResponses = yield call(
       getMovieSearchService,
@@ -34,9 +34,7 @@ function* searchMovies({
   }
 }
 
-function* searchMovieById({
-  payload,
-}: PayloadAction<string>): Generator<any, void, SearchResponse> {
+function* searchMovieById({payload}: PayloadAction<string>): Generator<any, void, SearchResponse> {
   try {
     const movieById: SearchResponses = yield call(
       getMovieSearchService,

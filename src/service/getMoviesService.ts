@@ -7,6 +7,7 @@ export interface Movie {
   imdbID: string;
   Type: string;
   Poster: string;
+  isFavorite?: boolean;
 }
 
 export interface SearchResponse {

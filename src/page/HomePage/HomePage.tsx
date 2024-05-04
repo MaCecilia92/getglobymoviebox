@@ -1,10 +1,8 @@
-import { type FC,} from 'react';
+import React, { FC } from 'react';
 import { SearchComponent } from '../../components';
 import { SearchComponentProps } from '../../components';
-//import { Favorite } from '../../components';
-import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { selectSearchResults } from '../../state/Movies/selectors';
-
+import { Favorite } from '../../components';
+import { Movie } from '../../service';
 
 export interface MovieFavorite {
   Title: string;
@@ -20,36 +18,35 @@ const HomePage: FC<SearchComponentProps> = ({
   SearchByTerm,
   error,
 }) => {
-  // const [favoriteItems, setFavoriteItems] = useState<MovieFavorite[] | null>(
-  //   null,
-  // );
 
-  const movies = useSelector(selectSearchResults);
-  console.log(movies)
-
-  console.log(searchResults, 'resultshome')
-
-  // useEffect(() => {
-  //   const localStorageItems: string | null = localStorage.getItem('favorite');
-  //   if (localStorageItems && searchResults) {
-  //     const dataFromStorage: Favorite[] = JSON.parse(localStorageItems);
-  //     const updatedResults = searchResults.map((result: MovieFavorite) => {
-  //       const match = dataFromStorage.find(
-  //         (storageItem: Favorite) => result.imdbID === storageItem.idMovie,
-  //       );
-  //       if (match) {
-  //         return { ...result, isFavorite: true };
-  //       }
-  //       return { ...result, isFavorite: false };
-  //     });
-  //     setFavoriteItems(updatedResults);
-  //   }
-  // }, [searchResults]);
-
+  const getFavoritesFromLocalStorage = (): Favorite[] => {
+    const localStorageItems: string | null = localStorage.getItem('favorites');
+  
+    if (localStorageItems !== null) {
+      return JSON.parse(localStorageItems);
+    } else {
+      return [];
+    }
+  };
+  
+  const favorites: Favorite[] = getFavoritesFromLocalStorage();
+  
+  const addIsFavoriteFlag = (movie: Movie, favorites: Favorite[]): Movie => {
+    const favoriteMatch = favorites.find(favorite => favorite.idMovie === movie.imdbID);
+    if (favoriteMatch) {
+        return { ...movie, isFavorite: true };
+    } else {
+        return { ...movie, isFavorite: false };
+    }
+  };
+  
+  const searchResultsWithFavorites: Movie[] = searchResults.map(movie =>
+    addIsFavoriteFlag(movie, favorites)
+  );
   return (
     <>
       <SearchComponent
-        searchResults={movies || []}
+        searchResults={searchResultsWithFavorites || []}
         SearchByTerm={SearchByTerm}
         error={error}
       />
