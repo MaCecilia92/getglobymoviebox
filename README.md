@@ -1,7 +1,6 @@
 ## Cómo instalar el proyecto? 
-- Clonar el proyecto con git clone
+- Clonar el proyecto
 - Instalar las dependencias con npm i
-- Tirar un comando e instalar otras dependencias con yarn install (sé que esto esta mal, pero tuve muchos conflictos para instalar redux en el proyecto y no pude encontrar su causa)
 - Si todo salió bien el proyecto corre en http://localhost:5173/
 
 ## Mejoras a realizar
