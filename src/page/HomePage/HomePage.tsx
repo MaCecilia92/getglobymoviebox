@@ -2,6 +2,9 @@ import { type FC, useEffect, useState } from 'react';
 import { SearchComponent } from '../../components';
 import { SearchComponentProps } from '../../components';
 import { Favorite } from '../../components';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { selectSearchResults } from '../../state/Movies/selectors';
+
 
 export interface MovieFavorite {
   Title: string;
@@ -20,6 +23,11 @@ const HomePage: FC<SearchComponentProps> = ({
   const [favoriteItems, setFavoriteItems] = useState<MovieFavorite[] | null>(
     null,
   );
+
+  const movies = useSelector(selectSearchResults);
+  console.log(movies)
+
+  console.log(searchResults, 'resultshome')
 
   useEffect(() => {
     const localStorageItems: string | null = localStorage.getItem('favorite');
