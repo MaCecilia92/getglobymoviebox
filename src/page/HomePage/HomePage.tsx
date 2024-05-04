@@ -20,36 +20,36 @@ const HomePage: FC<SearchComponentProps> = ({
   SearchByTerm,
   error,
 }) => {
-  const [favoriteItems, setFavoriteItems] = useState<MovieFavorite[] | null>(
-    null,
-  );
+  // const [favoriteItems, setFavoriteItems] = useState<MovieFavorite[] | null>(
+  //   null,
+  // );
 
   const movies = useSelector(selectSearchResults);
   console.log(movies)
 
   console.log(searchResults, 'resultshome')
 
-  useEffect(() => {
-    const localStorageItems: string | null = localStorage.getItem('favorite');
-    if (localStorageItems && searchResults) {
-      const dataFromStorage: Favorite[] = JSON.parse(localStorageItems);
-      const updatedResults = searchResults.map((result: MovieFavorite) => {
-        const match = dataFromStorage.find(
-          (storageItem: Favorite) => result.imdbID === storageItem.idMovie,
-        );
-        if (match) {
-          return { ...result, isFavorite: true };
-        }
-        return { ...result, isFavorite: false };
-      });
-      setFavoriteItems(updatedResults);
-    }
-  }, [searchResults]);
+  // useEffect(() => {
+  //   const localStorageItems: string | null = localStorage.getItem('favorite');
+  //   if (localStorageItems && searchResults) {
+  //     const dataFromStorage: Favorite[] = JSON.parse(localStorageItems);
+  //     const updatedResults = searchResults.map((result: MovieFavorite) => {
+  //       const match = dataFromStorage.find(
+  //         (storageItem: Favorite) => result.imdbID === storageItem.idMovie,
+  //       );
+  //       if (match) {
+  //         return { ...result, isFavorite: true };
+  //       }
+  //       return { ...result, isFavorite: false };
+  //     });
+  //     setFavoriteItems(updatedResults);
+  //   }
+  // }, [searchResults]);
 
   return (
     <>
       <SearchComponent
-        searchResults={favoriteItems || []}
+        searchResults={movies || []}
         SearchByTerm={SearchByTerm}
         error={error}
       />
