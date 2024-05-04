@@ -1,7 +1,7 @@
-import { type FC, useEffect, useState } from 'react';
+import { type FC,} from 'react';
 import { SearchComponent } from '../../components';
 import { SearchComponentProps } from '../../components';
-import { Favorite } from '../../components';
+//import { Favorite } from '../../components';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectSearchResults } from '../../state/Movies/selectors';
 
