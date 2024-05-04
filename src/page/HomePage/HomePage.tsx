@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { type FC } from 'react';
 import { SearchComponent } from '../../components';
 import { SearchComponentProps } from '../../components';
 import { Favorite } from '../../components';
